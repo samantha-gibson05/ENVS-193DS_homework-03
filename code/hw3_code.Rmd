@@ -24,7 +24,23 @@ Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_h
 ## Problem 1. Slough soil salinity
 You are working at a restoration site where you are managing planting of California pickleweed (*Salicornia virginica*) along a brackish slough (i.e. there is a mixture of fresh water and salt water).
 
+You decide to measure plant growth for individual pickleweed plants by plucking an individual out of the ground and measuring the biomass (in g). You also measure salinity (as electrical conductivity in units of millisiemens per centimeter, or mS/cm) at the location in which the individual was growing. Admittedly, this isn’t a perfect study, but it’s what you can do with the time and resources you have!
+
+### 1a. An appropriate test
+In 1-3 sentences, name the appropriate test(s) to determine the **strength of the relationship between salinity and California pickleweed biomass** (hint: there are two). Describe the differences between the two tests.
+
 Be specific in your response to demonstrate your understanding of the variables in this question.
 
 An appropriate parametric test is **Pearson’s correlation coefficient (r)**, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is **Spearman’s rank correlation ($\rho$)**, which evaluates the strength of a monotonic relationship using ranked values of salinity and biomass and does not require normality. Pearson’s r tests linear association on raw data, whereas Spearman’s $\rho$ tests monotonic association based on ranks and is more flexible to non-normality and outliers.
+
+### b. Create a visualization
+Create a visualization that would be appropriate for showing the relationship between soil salinity (in mS/cm) and California pickleweed biomass (in g).
+
+In addition to using the correct geometries, be sure to:
+
+- relabel the x- and y-axes and include units
+- use different colors from the `ggplot()` defaults
+- use a different theme from the `ggplot()` default
+
+
 
