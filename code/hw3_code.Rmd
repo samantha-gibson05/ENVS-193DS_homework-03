@@ -89,6 +89,15 @@ cor.test(salinity$pickleweed, # pickleweed biomass variable from salinity df
          salinity$salinity_mS_cm, # salinity variable from salinity df
          method = "pearson") # specifies Pearson (linear assumption met)
 ```
-I found a moderate relationship between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05).
 
+### d. Write about your methods and results.
+In 1-3 sentences each, write about:
+
+- which test you used, and why
+
+I used Pearson’s product–moment correlation because both soil salinity (mS/cm) and pickleweed biomass (g) are continuous variables, and the goal was to determine the strength of the relationship between these variables. The diagnostic plots indicated that assumptions of linear relationship between variables, normally distributed variables, and independent observations were reasonably met with some minor deviations from homoscedasticity. This made Pearson’s correlation appropriate for evaluating this linear relationship.
+
+- your interpretation of your test (along with the appropriate summary of the test in parentheses)
+
+I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that individuals may perform better under higher salinity conditions.
 
