@@ -1,0 +1,11 @@
+---
+title: "Homework_3"
+output: pdf_document
+date: "2026-02-24"
+---
+
+```{r setup, include=FALSE}
+
+```
+
+Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_homework-03>
