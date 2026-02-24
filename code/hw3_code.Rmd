@@ -3,7 +3,7 @@ title: "Homework_3"
 output: pdf_document
 date: "2026-02-24"
 ---
-## Set-up
+# Set-up
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse) # reads in tidyverse package
@@ -19,3 +19,17 @@ salinity <- read.csv("data/salinity-pickleweed.csv")
 ```
 
 Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_homework-03>
+
+# Problems
+## Problem 1. Slough soil salinity
+You are working at a restoration site where you are managing planting of California pickleweed (*Salicornia virginica*) along a brackish slough (i.e. there is a mixture of fresh water and salt water).
+
+You decide to measure plant growth for individual pickleweed plants by plucking an individual out of the ground and measuring the biomass (in g). You also measure salinity (as electrical conductivity in units of millisiemens per centimeter, or mS/cm) at the location in which the individual was growing. Admittedly, this isn’t a perfect study, but it’s what you can do with the time and resources you have!
+
+### a. An appropriate test
+In 1-3 sentences, name the appropriate test(s) to determine the strength of the relationship between salinity and California pickleweed biomass (hint: there are two). Describe the differences between the two tests.
+
+Two appropriate tests to determine the strength of the relationship between salinity (continuous predictor) and California pickleweed biomass (continuous response variable) are **Pearson’s correlation** and **simple linear regression**. Pearson’s correlation (r) quantifies the strength and direction of the linear association between salinity and biomass, whereas linear regression models biomass as a function of salinity, providing an explicit predictive equation (biomass = $\beta_0 +  \beta_1*$salinity) and allows us to interpret the slope (expected change in biomass per unit increase in salinity).
+
+
+
