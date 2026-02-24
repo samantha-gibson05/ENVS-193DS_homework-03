@@ -42,5 +42,17 @@ In addition to using the correct geometries, be sure to:
 - use different colors from the `ggplot()` defaults
 - use a different theme from the `ggplot()` default
 
+```{r}
+# xxx check during OH xxx
+ggplot(data = salinity, # uses salinity data
+       aes(x = salinity_mS_cm, # x is soil salinity
+           y = pickleweed)) + # y is soil pickleweed biomass
+  geom_point(color = 'magenta') + # changes color from default
+  labs(title = "California pickleweed biomass vs. soil salinity", # creates title
+    x = "Soil salinity (mS/cm)", # relabels x-axis
+    y = "CA pickleweed biomass (g)") +  # relabels y-axis
+  theme_minimal() # changes from default theme
+```
+
 
 
