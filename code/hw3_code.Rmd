@@ -3,19 +3,29 @@ title: "Homework_3"
 output: pdf_document
 date: "2026-02-24"
 ---
-## Set-up
+# Set-up
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse) # reads in tidyverse package
 library(here) # reads in here package
 library(janitor) # reads in janitor package
-library(readxl) # reads in readxl package\
+library(readxl) # reads in readxl package
 
 # Stores the salinity data as an object called salinity
-salinity <- read.csv("data/salinity-pickleweed.csv") 
+salinity <- read.csv(here('data',"salinity-pickleweed.csv")) 
 
 # Stores my personal data as an object called my_data
-# my_data <- read.csv() xxx add later xxx # stores personal data as my_data
+# my_data <- read.csv() xxx add later xxx 
 ```
 
 Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_homework-03>
+
+# Problems
+## Problem 1. Slough soil salinity
+You are working at a restoration site where you are managing planting of California pickleweed (*Salicornia virginica*) along a brackish slough (i.e. there is a mixture of fresh water and salt water).
+Be specific in your response to demonstrate your understanding of the variables in this question.
+
+An appropriate parametric test is **Pearson’s correlation coefficient (r)**, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is **Spearman’s rank correlation ($\rho$)**, which evaluates the strength of a monotonic relationship using ranked values of salinity and biomass and does not require normality. Pearson’s r tests linear association on raw data, whereas Spearman’s $\rho$ tests monotonic association based on ranks and is more flexible to non-normality and outliers.
+
+
+
