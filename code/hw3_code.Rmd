@@ -3,7 +3,7 @@ title: "Homework_3"
 output: pdf_document
 date: "2026-02-24"
 ---
-## Set up
+## Set-up
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse) # reads in tidyverse package
@@ -11,7 +11,11 @@ library(here) # reads in here package
 library(janitor) # reads in janitor package
 library(readxl) # reads in readxl package\
 
+# Stores the salinity data as an object called salinity
+salinity <- read.csv("data/salinity-pickleweed.csv") 
 
+# Stores my personal data as an object called my_data
+# my_data <- read.csv() xxx add later xxx # stores personal data as my_data
 ```
 
 Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_homework-03>
