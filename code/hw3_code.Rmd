@@ -4,16 +4,15 @@ output: pdf_document
 date: "2026-02-24"
 ---
 # Set-up
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse) # reads in tidyverse package
-library(here) # reads in here package
-library(janitor) # reads in janitor package
-library(readxl) # reads in readxl package
-
+```{r setup}
+suppressPackageStartupMessages({
+  library(tidyverse) # reads in tidyverse package
+  library(here) # reads in here package
+  library(janitor) # reads in janitor package
+  library(readxl) # reads in readxl package
+  library(performance)}) # reads in performance package
 # Stores the salinity data as an object called salinity
 salinity <- read.csv(here('data',"salinity-pickleweed.csv")) 
-
 # Stores my personal data as an object called my_data
 # my_data <- read.csv() xxx add later xxx 
 ```
@@ -26,7 +25,7 @@ You are working at a restoration site where you are managing planting of Califor
 
 You decide to measure plant growth for individual pickleweed plants by plucking an individual out of the ground and measuring the biomass (in g). You also measure salinity (as electrical conductivity in units of millisiemens per centimeter, or mS/cm) at the location in which the individual was growing. Admittedly, this isn’t a perfect study, but it’s what you can do with the time and resources you have!
 
-### 1a. An appropriate test
+### a. An appropriate test
 In 1-3 sentences, name the appropriate test(s) to determine the **strength of the relationship between salinity and California pickleweed biomass** (hint: there are two). Describe the differences between the two tests.
 
 Be specific in your response to demonstrate your understanding of the variables in this question.
@@ -54,5 +53,42 @@ ggplot(data = salinity, # uses salinity data
   theme_minimal() # changes from default theme
 ```
 
+### c. Check your assumptions and run your test.
+In the order that is appropriate, create separate sections using subheaders to:
+
+- check your assumptions
+- run your test
+
+In each section, write the code to check your assumptions and run your test as you see fit.
+
+In the section in which you check your assumptions, write 1-3 sentences describing:
+
+- which assumptions you checked
+- how you checked your assumptions
+- your assessment of your assumption checks
+
+### Part 1: Checking My Assumptions
+
+```{r, fig.width=10, fig.height=8}
+# Fit linear model
+salinity_model <- lm(pickleweed ~ salinity_mS_cm, 
+                     # response (biomass) ~ predictor (salinity)
+                     data = salinity) 
+                      # uses salinitiy data
+# Diagnostic plots
+par(mfrow = c(2, 2)) # arrange plots in a 2x2 grid
+plot(salinity_model) # generate plots based on salinity_model
+```
+
+I checked the assumptions needed for Pearson's correlation by fitting the linear model `salinity_model`, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction.
+
+### Part 2: Running My Test
+```{r}
+# Parametric Pearson's correlation test
+cor.test(salinity$pickleweed, # pickleweed biomass variable from salinity df 
+         salinity$salinity_mS_cm, # salinity variable from salinity df
+         method = "pearson") # specifies Pearson (linear assumption met)
+```
+I found a moderate relationship between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05).
 
 
