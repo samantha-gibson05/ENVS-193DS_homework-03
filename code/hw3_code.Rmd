@@ -101,3 +101,9 @@ I used Pearson’s product–moment correlation because both soil salinity (mS/c
 
 I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that individuals may perform better under higher salinity conditions.
 
+### e. Write about the implications of your test.
+You’re working on a team of people at this restoration site who are also concerned about pickleweed planting. In 2-3 sentences, write what you would communicate to them about the results of this test and what it means for pickleweed planting success at your site.
+
+Be cognizant of your audience as you are writing: what would they need to know to take action?
+
+My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05), meaning that plants in higher-salinity areas tended to be larger in the data sample. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough, so prioritizing planting in areas with moderate to higher salinity may improve establishment and growth. 
