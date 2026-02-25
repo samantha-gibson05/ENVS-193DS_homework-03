@@ -202,6 +202,7 @@ ggplot(my_data_clean, # uses cleaned data
   theme(axis.text.x = element_text(angle = 45, hjust = 1), # rotate x-axis labels
     legend.position = "right") # keep legend on right
 ```
+
 **Visualization 2 (continuous predictor variable)**
 ```{r}
 ggplot(data = my_data_clean, # uses cleaned data
@@ -223,7 +224,13 @@ ggplot(data = my_data_clean, # uses cleaned data
 In text (not in code), write captions for both your figures.
 
 **Figure 1. Time stressed varies across days of the week.** 
-Colored boxplots represent the distribution of daily time stressed (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring .
+Colored boxplots represent the distribution of daily time stressed (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 **Figure 2. Sleep duration is variably associated with daily stress levels.**
-Purple circles represent individual daily observations of time slept (minutes) plotted against time stressed (minutes). Each point corresponds to a single recorded day. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring .
+Purple circles represent individual daily observations of time slept (minutes) plotted against time stressed (minutes). Each point corresponds to a single recorded day. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+
+## Problem 3. Affective visualization
+
+In this problem, you will create an **affective visualization** using your personal data in preparation for workshops during weeks 9 and 10.
+
+### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
