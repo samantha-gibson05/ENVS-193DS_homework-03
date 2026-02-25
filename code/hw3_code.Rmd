@@ -143,3 +143,76 @@ For each plot, be sure to:
 - clean up the visual clutter (e.g. grids, backgrounds)
 - use colors that are different from the `ggplot()` defaults
 
+**Visualization 2 (categorical predictor variable)**
+```{r}
+# Clean data
+my_data_clean <- my_data |> # starts with the raw personal dataset
+  clean_names() |>  # standardizes column names (lowercase + underscores)
+  # converts day_of_week to an ordered factor + display days in order (Mon–Sun)
+  mutate(day_of_week = factor(day_of_week, 
+                              levels = c("Monday","Tuesday","Wednesday","Thursday",
+                                         "Friday","Saturday","Sunday"))) |>
+  # convert the column to Date format with the correct format string
+  mutate(date = as.Date(date_mm_dd_yyyy, format = "%m/%d/%Y"))
+
+
+# Collect the most recent date for the subtitle
+most_recent_date <- my_data_clean |> # uses cleaned data set     
+  summarise(max_date = max(date)) |> # computes most recent obs date
+  pull(max_date) # extracts most recent obs date
+
+# Defines a list of colors to be used for each day of the week in the plot
+week_colors <- c(
+  "Monday"    = 'coral',
+  "Tuesday"   = 'steelblue',
+  "Wednesday" = 'lavender',
+  "Thursday"  = "pink",
+  "Friday"    = 'limegreen',
+  "Saturday"  = "yellow",
+  "Sunday"    = "lightblue") 
+# ggplot base layer
+ggplot(my_data_clean, # uses cleaned data
+       aes(x = day_of_week, # categorical predictor (day of week) on x-axis
+           y = time_stressed_min)) + # response (time stressed (min)) on y-axis 
+  # creates boxplot
+  geom_boxplot( # creates boxplots by day
+    aes(fill = day_of_week), # fills color by day of week
+    width = 0.65, # sets box width
+    alpha = 0.50, # sets transparency so points are visible
+    outlier.shape = NA) + # hide default outlier dots 
+  geom_jitter( # adds jitter points of individual observations
+    aes(color = day_of_week), # designates point color by day of week
+    width = 0.12, # jitters horizontally to reduce overlap
+    height = 0, # no vertical jitter 
+    alpha = 0.65, # sets transparency for readability
+    size = 2) + # sets point size
+  # creates scatter points for each day of the week
+  scale_fill_manual(values = week_colors) + # applies custom fill colors
+  scale_color_manual(values = week_colors, # applies custom point colors 
+                     guide = "none") + # hides legend
+  labs(title = "Time stressed varies across days of the week", # creates title
+       subtitle = paste("Most recent observation:", most_recent_date), 
+       # creates subtitle with latest date
+       x = "Day of week", # creates x-axis label
+       y = "Time stressed (minutes)") + # creates y-axis label + units
+  theme_classic(base_size = 12) + # cleaner theme
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), # rotate x-axis labels
+    legend.position = "right") # keep legend on right
+```
+**Visualization 2 (continuous predictor variable)**
+```{r}
+ggplot(data = my_data_clean, # uses cleaned data
+       aes(x = time_slept_minutes, # continuous predictor (time slept (min)) on x-axis
+           y = time_stressed_min)) + # response (time stressed (min)) on y-axis 
+  geom_point( # plots individual days
+    color = "magenta4", # changes color to purple
+    alpha = 0.7, # sets transparency so points are visible
+    size = 2) + # sets size of points 
+  labs(title = "Sleep duration vs. stress", # creates title
+       subtitle = paste("Most recent observation:", most_recent_date), 
+       # creates subtitle with latest date
+       x = "Time slept (minutes)", # creates x-axis label
+       y = "Time stressed (minutes)") + # creates y-axis label + units                  
+  theme_classic(base_size = 12) # cleaner theme
+```
+
