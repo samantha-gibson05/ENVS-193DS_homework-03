@@ -107,3 +107,21 @@ You’re working on a team of people at this restoration site who are also conce
 Be cognizant of your audience as you are writing: what would they need to know to take action?
 
 My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05), meaning that plants in higher-salinity areas tended to be larger in the data sample. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough, so prioritizing planting in areas with moderate to higher salinity may improve establishment and growth. 
+
+### f. Double check your own work.
+In part a, you outlined *two* potential tests to answer this question about the strength of the relationship between soil salinity and pickleweed biomass. In part c, you chose a test, checked your assumptions, and ran one.
+
+Try running the *other* test you listed in part a. Include the annotated code and output.
+
+```{r}
+# Non-Parametric Spearman's correlation test
+cor.test(salinity$pickleweed, # pickleweed biomass variable from salinity df 
+         salinity$salinity_mS_cm, # salinity variable from salinity df
+         method = "spearman") # specifies Spearman (no linear assumption)
+```
+
+In 1-3 sentences, describe whether or not the two tests would have led you to make the same decision (about the null hypothesis) and interpret the results the same way (about the relationship between soil salinity and pickleweed biomass).
+
+In your description, be specific about the tests, their components, and their relation to the variables.
+
+Yes, both Pearson’s r and Spearman’s $\rho$ reject the null hypothesis of no association (Pearson’s r = 0.53, t(21) = 2.9, p = 0.009, $\alpha$ = 0.05; Spearman's $\rho$ = 0.59, S = 824, p < 0.003, $\alpha$ = 0.05). Both tests indicate a moderate positive relationship between soil salinity (mS/cm) and pickleweed biomass (g). The Spearman result is slightly stronger which is consistent with the diagnostics showing mild heteroscedasticity.
