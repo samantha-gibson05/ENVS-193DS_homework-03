@@ -236,3 +236,6 @@ In this problem, you will create an **affective visualization** using your perso
 ### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
 
 Inspired by warming stripes and textile art I could creat a visualization where each day could be represented as a vertical strip of color. Color intensity could reflect time spent stressed. For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The height of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chroniologically to try to represent any patterns/trends over time. 
+
+### b. Create a sketch (on paper) of your idea.
+Include a photo of this sketch in your document.
