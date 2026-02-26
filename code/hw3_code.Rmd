@@ -45,7 +45,6 @@ In addition to using the correct geometries, be sure to:
 - use a different theme from the `ggplot()` default
 
 ```{r}
-# xxx check during OH xxx
 ggplot(data = salinity, # uses salinity data
        aes(x = salinity_mS_cm, # x is soil salinity
            y = pickleweed)) + # y is soil pickleweed biomass
@@ -235,7 +234,7 @@ In this problem, you will create an **affective visualization** using your perso
 
 ### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
 
-Inspired by warming stripes and textile art I could creat a visualization where each day could be represented as a vertical strip of color. Color intensity could reflect time spent stressed. For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The height of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chroniologically to try to represent any patterns/trends over time. 
+Inspired by warming stripes and quilt art I could create a visualization where each day could be represented as a horizontal strip of color. Color intensity could reflect time spent stressed and opacity of the strip could be determined by my sleep efficiency (measured as a % out of 100). For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The length of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chroniologically, with the first observation in the middle of the square design mirrored across the horizontal middle to try to represent any patterns/trends over time. 
 
 ### b. Create a sketch (on paper) of your idea.
 Include a photo of this sketch in your document.
@@ -247,9 +246,20 @@ Feel free to be creative with this! The one rule is that *you may not use any co
 An artist statement gives the audience context to understand your work. For each of the following points, write 1-3 sentences to address:
 
 - the content of your piece (what are you showing?)
+
+This piece visualizes my daily sleep duration and time spent stressed data arranged chronologically, to reveal patterns, fluctuations, and rhythms over time. Each day is represented as a horizontal strip of color, where the hue of the color reflects the amount of time I felt stressed (red/orange hues indicate more time spent stressed and green/blue hues represent less time spent stressed). The opacity of the strip will be determined by my sleep efficiency (will more efficiency represented by more opaque strips) and with the length of the strip representing how long I slept.
+
 - the influences (what did techniques/artists/etc. did you find influential in creating your work?)
+
+I was influenced by warming stripes temperature visualizations and quilt art, which use simple color gradients to communicate change over time in an intuitive and emotional way. I was also inspired by data-art projects allowing trends to be felt rather than just measured. My initial inspiration came from temperature color blankets I saw on the r/dataisbeautiful Reddit page I saw over the past summer that really stuck with me.
+
 - the form of your work (watercolor, oil painting, crocheted object, etc.)
-your process (how did you create your work?)
+
+My visualization will be created digitally using the Sketchbook app on my iPad. 
+
+- your process (how did you create your work?)
+
+I plan to use a grid background (which I will later deleted) to keep my strip spacing and length (indicating time slept consistent). The mean sleep efficiency (over my current sample of data) will mark the 50% opacity with more efficient days being more opaque and vice versa. Each block on the grid will indicate an additional 10 minutes slept and a change in hue by 10 towards a more red tone will indicate 15 additional minutes stressed.
 
 ### e. Prep your materials to share in class.
 In workshop week 9, you will present your draft and providing feedback on your learning partners’ drafts.
