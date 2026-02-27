@@ -215,7 +215,7 @@ ggplot(data = my_data_clean, # uses cleaned data
     color = "magenta4", # changes color to purple
     alpha = 0.7, # sets transparency so points are visible
     size = 2) + # sets size of points 
-  labs(title = "Sleep duration vs. stress", # creates title
+  labs(title = "Sleep duration vs. sleep efficiency", # creates title
        subtitle = paste("Most recent observation:", most_recent_date), 
        # creates subtitle with latest date
        x = "Sleep Efficiency (range 0-1)", # creates x-axis label
@@ -226,7 +226,7 @@ ggplot(data = my_data_clean, # uses cleaned data
 ### b. Captions
 In text (not in code), write captions for both your figures.
 
-**Figure 1. Time Slept varies across days of the week.** 
+**Figure 1. Time slept varies across days of the week.** 
 Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 **Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).**
@@ -269,29 +269,16 @@ I plan to use a grid background (which I will later deleted) to keep my strip sp
 ### e. Prep your materials to share in class.
 In workshop week 9, you will present your draft and providing feedback on your learning partners’ drafts.
 
-To prepare for this, create a presentation on Google slides with:
-
-- one slide on:
-  - your project’s central question and why you wanted to ask that question
-  - the main variables (one response and one predictor) that you are measuring and how
-  - you think your predictor variable influences your response variable
-- one slide on:
-  - the other variables you measured and how each of them relate to your main variable
-- one slide depicting one of the two visualizations you made for homework 2, updated to include your new observations
-- one slide on:
-  - your idea for your affective visualization
-  - what inspiration you took from which sources
-  - the medium in which you will create your affective visualization
-- one slide on:
-  - your draft
-  - your anticipated artist statement
-  - the feedback that would be most helpful to you at this particular point (e.g. “I need help figuring out what other variables to depict and how”, “I think these colors work but I’m not sure - are there better ones?”)
 **In your homework submission, include a “View” link to your slides as a hyperlink.**
+
+
 
 ## Problem 4. Statistical critique
 At this point, you have seen and created a lot of figures for this class. Revisit the paper you chose for your critique and your homework 2, where you described figures or tables in the text. Address the following in full sentences (3-4 sentences each).
 
 **For this section of your homework, you will be evaluated on the logic, conciseness, and nuance of your critique.**
+
+<https://docs.google.com/presentation/d/1-lYdxF9JngIYa13cuBBAoMJlJq-qKELeeaqrVKrTPOs/edit?usp=sharing>
 
 ### a. Revisit and summarize
 What are the statistical tests the authors are using to address their main research question? (Note: you have already written about this in homework 2! Find that text and provide it again here!)
