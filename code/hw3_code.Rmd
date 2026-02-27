@@ -136,6 +136,8 @@ Provide the code and output for *updated* plots with your most recent observatio
 
 Note: if you think that a *different* plot type or *different* variables would be more interesting to visualize, then change your plots!
 
+**NOTE**: I am pivoting my response variable to be time slept and my main predictor to be sleep efficiency with time spent stress remaining as an additional potential predictor.
+
 You should have the annotated code and output for *two* plots.
 
 For each plot, be sure to:
@@ -155,7 +157,9 @@ my_data_clean <- my_data |> # starts with the raw personal dataset
                               levels = c("Monday","Tuesday","Wednesday","Thursday",
                                          "Friday","Saturday","Sunday"))) |>
   # convert the column to Date format with the correct format string
-  mutate(date = as.Date(date_mm_dd_yyyy, format = "%m/%d/%Y"))
+  mutate(date = as.Date(date_mm_dd_yyyy, format = "%m/%d/%Y")) |>
+  # mutates sleep eficiency to be a numberic variable
+  mutate(sleep_efficiency = parse_number(as.character(sleep_efficiency)) / 100)
 
 
 # Collect the most recent date for the subtitle
@@ -175,7 +179,7 @@ week_colors <- c(
 # ggplot base layer
 ggplot(my_data_clean, # uses cleaned data
        aes(x = day_of_week, # categorical predictor (day of week) on x-axis
-           y = time_stressed_min)) + # response (time stressed (min)) on y-axis 
+           y = time_slept_minutes)) + # response (time slept (min)) on y-axis 
   # creates boxplot
   geom_boxplot( # creates boxplots by day
     aes(fill = day_of_week), # fills color by day of week
@@ -192,11 +196,11 @@ ggplot(my_data_clean, # uses cleaned data
   scale_fill_manual(values = week_colors) + # applies custom fill colors
   scale_color_manual(values = week_colors, # applies custom point colors 
                      guide = "none") + # hides legend
-  labs(title = "Time stressed varies across days of the week", # creates title
+  labs(title = "Time slept varies across days of the week", # creates title
        subtitle = paste("Most recent observation:", most_recent_date), 
        # creates subtitle with latest date
        x = "Day of week", # creates x-axis label
-       y = "Time stressed (minutes)") + # creates y-axis label + units
+       y = "Time slept (minutes)") + # creates y-axis label + units
   theme_classic(base_size = 12) + # cleaner theme
   theme(axis.text.x = element_text(angle = 45, hjust = 1), # rotate x-axis labels
     legend.position = "right") # keep legend on right
@@ -205,8 +209,8 @@ ggplot(my_data_clean, # uses cleaned data
 **Visualization 2 (continuous predictor variable)**
 ```{r}
 ggplot(data = my_data_clean, # uses cleaned data
-       aes(x = time_slept_minutes, # continuous predictor (time slept (min)) on x-axis
-           y = time_stressed_min)) + # response (time stressed (min)) on y-axis 
+       aes(x = sleep_efficiency, # continuous predictor (sleep efficency) on x-axis
+           y = time_slept_minutes)) + # response (time slept (min)) on y-axis 
   geom_point( # plots individual days
     color = "magenta4", # changes color to purple
     alpha = 0.7, # sets transparency so points are visible
@@ -214,19 +218,20 @@ ggplot(data = my_data_clean, # uses cleaned data
   labs(title = "Sleep duration vs. stress", # creates title
        subtitle = paste("Most recent observation:", most_recent_date), 
        # creates subtitle with latest date
-       x = "Time slept (minutes)", # creates x-axis label
-       y = "Time stressed (minutes)") + # creates y-axis label + units                  
+       x = "Sleep Efficiency (range 0-1)", # creates x-axis label
+       y = "Time slept (minutes))") + # creates y-axis label + units                  
   theme_classic(base_size = 12) # cleaner theme
 ```
 
 ### b. Captions
 In text (not in code), write captions for both your figures.
 
-**Figure 1. Time stressed varies across days of the week.** 
-Colored boxplots represent the distribution of daily time stressed (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+**Figure 1. Time Slept varies across days of the week.** 
+Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
-**Figure 2. Sleep duration is variably associated with daily stress levels.**
-Purple circles represent individual daily observations of time slept (minutes) plotted against time stressed (minutes). Each point corresponds to a single recorded day. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+**Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).**
+Purple circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficency and 0 indicating 0% efficiency). Each point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you
+were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 ## Problem 3. Affective visualization
 
@@ -234,7 +239,7 @@ In this problem, you will create an **affective visualization** using your perso
 
 ### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
 
-Inspired by warming stripes and quilt art I could create a visualization where each day could be represented as a horizontal strip of color. Color intensity could reflect time spent stressed and opacity of the strip could be determined by my sleep efficiency (measured as a % out of 100). For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The length of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chroniologically, with the first observation in the middle of the square design mirrored across the horizontal middle to try to represent any patterns/trends over time. 
+Inspired by warming stripes and quilt art I could create a visualization where each day could be represented as a horizontal strip of color. Color intensity could reflect time spent stressed and opacity of the strip could be determined by my sleep efficiency (measured as a % out of 100). For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The length of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chronologically, with the first observation in the middle of the square design mirrored across the horizontal middle to try to represent any patterns/trends over time. 
 
 ### b. Create a sketch (on paper) of your idea.
 Include a photo of this sketch in your document.
@@ -317,3 +322,8 @@ Remember that data:ink ratio is not an actual ratio, but a way of thinking about
 In 2-4 sentences, outline what recommendations would you make to make the figure or table better. What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
 
 **Alternatively**, if the authors did not represent their statistics in a figure, what kind of figure would you recommend to them? Describe the x- and y-axes, with any geometries and aesthetics (colors, etc.). Provide enough explanation such that someone would be able to create the figure you describe in code. Provide explanations/justifications for the figure you would recommend.
+
+
+
+
+
