@@ -1,14 +1,14 @@
 ---
-title: "Homework_3"
-output:
-  html_document:
-    df_print: paged
-  pdf_document: default
-toc: True 
-date: "2026-02-24"
-
+title: "Homework 3"
+author: "Sami Gibson"
+date: "03/31/2005"
+format:
+  html:
+    toc: true # use this to display a table of contents
+execute:
+  message: false # use this to make sure messages don't show up
+  warning: false # use this to make sure warnings don't show upl
 ---
-xxx toc xxx
 # Set-up
 ```{r setup}
 suppressPackageStartupMessages({
