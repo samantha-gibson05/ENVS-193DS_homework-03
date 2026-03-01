@@ -248,7 +248,10 @@ Inspired by warming stripes and quilt art I could create a visualization where e
 ### b. Create a sketch (on paper) of your idea.
 Include a photo of this sketch in your document.
 
-xxx need to do
+```{r}
+# includes sketch
+knitr::include_graphics(here('data',"sketch.jpg"))
+```
 
 ### c. Make a draft of your visualization.
 Feel free to be creative with this! The one rule is that *you may not use any code to create your visualization*.
