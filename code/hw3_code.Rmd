@@ -4,8 +4,11 @@ output:
   html_document:
     df_print: paged
   pdf_document: default
+toc: True 
 date: "2026-02-24"
+
 ---
+xxx toc xxx
 # Set-up
 ```{r setup}
 suppressPackageStartupMessages({
@@ -20,7 +23,7 @@ salinity <- read.csv(here('data',"salinity-pickleweed.csv"))
 my_data <- read.csv(here('data',"193DS data - stress (3).csv")) 
 ```
 
-Here is my GitHub Repository: <https://github.com/samantha-gibson05/ENVS-193DS_homework-03>
+[Here is my GitHub Repository](https://github.com/samantha-gibson05/ENVS-193DS_homework-03)
 
 # Problems
 ## Problem 1. Slough soil salinity
@@ -271,46 +274,42 @@ In workshop week 9, you will present your draft and providing feedback on your l
 
 **In your homework submission, include a “View” link to your slides as a hyperlink.**
 
-
+<https://docs.google.com/presentation/d/1-lYdxF9JngIYa13cuBBAoMJlJq-qKELeeaqrVKrTPOs/edit?usp=sharing>
 
 ## Problem 4. Statistical critique
 At this point, you have seen and created a lot of figures for this class. Revisit the paper you chose for your critique and your homework 2, where you described figures or tables in the text. Address the following in full sentences (3-4 sentences each).
 
 **For this section of your homework, you will be evaluated on the logic, conciseness, and nuance of your critique.**
 
-<https://docs.google.com/presentation/d/1-lYdxF9JngIYa13cuBBAoMJlJq-qKELeeaqrVKrTPOs/edit?usp=sharing>
-
 ### a. Revisit and summarize
 What are the statistical tests the authors are using to address their main research question? (Note: you have already written about this in homework 2! Find that text and provide it again here!)
 
+The statistical test in this paper is a Kruskal–Wallis test (to compare the three treatments), followed by pairwise Mann–Whitney U-tests for post-hoc comparisons. The response variable is periphyton (primary producer) net primary production and the predictor variable is Mediterranean barbel (small endangered predator fish species) density.
+
 Insert the figure or table you described in Homework 2 here.
 
+```{r}
+knitr::include_graphics(here('code',"pone.0117630.g005.png"))
+```
+
 ### b. Visual clarity
-In 2-4 sentences, answer the question that best fits your paper.
+In 2-4 sentences, answer the question.
 
-If you inserted a figure in Part a: How clearly did the authors *visually* represent their statistics in figures? For example, are the x- and y-axes in a logical position? Do they show summary statistics (means and SE, for example) and/or model predictions, and if so, do they show the underlying data?
+How clearly did the authors *visually* represent their statistics in figures? For example, are the x- and y-axes in a logical position? Do they show summary statistics (means and SE, for example) and/or model predictions, and if so, do they show the underlying data?
 
-If you inserted a table in Part b: How clearly does the table represent the data underlying tests?
+The authors clearly present the primary comparison by placing predator density categories on the x-axis and chlorophyll-a concentration on the y-axis, which feels like a logical and intuitive layout. The figure displays summary statistics (mean values) with error bars, representing standard error, and uses letter groupings (“a” = absent, “b” = barbels) to indicate statistically significant differences among treatments. While the summary presentation communicates statistical differences efficiently, it limits representation regarding the spread and structure of the raw data because it does not show underlying data points. making it difficult to assess sample size, variability distribution, or potential outliers. 
 
-If you have neither: Critique another figure or table in the text for visual clarity (and insert a screenshot of that figure/table in your submission).
 
 ### c. Aesthetic clarity
-In 2-4 sentences, answer the question that best fits your paper.
+In 2-4 sentences, answer the question.
 
-If you inserted a figure in Part a: How well did the authors handle “visual clutter”? How would you describe the the data:ink ratio?
+How well did the authors handle “visual clutter”? How would you describe the the data:ink ratio?
 
-If you inserted a table in Part b: How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?
+The figure is visually straightforward and uncluttered, with minimal gridlines and clear labeling. The data-to-ink ratio is fairly high because most visual elements directly represent data (bars, error bars, group labels), and there are few unnecessary decorative components. However, the large, fully filled bars dominate the visual space and draw attention more to area than to the actual mean values. The bold primary colors also create strong visual contrast that is not tied to additional meaning, which makes the figure visually loud despite its otherwise simple and clear design.
 
-If you have neither: Critique another figure or table in the text for aesthetic clarity (and insert a screenshot of that figure/table in your submission).
-
-Remember that data:ink ratio is not an actual ratio, but a way of thinking about the amount of visual clutter relative to the information being presented.
 
 ### d. Recommendations
 In 2-4 sentences, outline what recommendations would you make to make the figure or table better. What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
 
-**Alternatively**, if the authors did not represent their statistics in a figure, what kind of figure would you recommend to them? Describe the x- and y-axes, with any geometries and aesthetics (colors, etc.). Provide enough explanation such that someone would be able to create the figure you describe in code. Provide explanations/justifications for the figure you would recommend.
 
-
-
-
-
+I would recommend replacing the bar chart with a dot plot or boxplot that includes the underlying data points. This would display more information and allow readers to evaluate variability and sample size more directly. Additionally, using slightly more muted colors would improve accessibility without altering interpretation. The y-axis could also explicitly state what the error bars represent (e.g., ± SE), which would clarify the statistical summary being shown although this information is found below in the caption. These changes could increase interpretability of the figure.
