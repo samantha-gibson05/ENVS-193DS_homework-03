@@ -79,7 +79,7 @@ In the section in which you check your assumptions, write 1-3 sentences describi
 salinity_model <- lm(pickleweed ~ salinity_mS_cm, 
                      # response (biomass) ~ predictor (salinity)
                      data = salinity) 
-                      # uses salinitiy data
+                      # uses salinity data
 # Diagnostic plots
 par(mfrow = c(2, 2)) # arrange plots in a 2x2 grid
 plot(salinity_model) # generate plots based on salinity_model
@@ -223,7 +223,7 @@ ggplot(data = my_data_clean, # uses cleaned data
        subtitle = paste("Most recent observation:", most_recent_date), 
        # creates subtitle with latest date
        x = "Sleep Efficiency (range 0-1)", # creates x-axis label
-       y = "Time slept (minutes))") + # creates y-axis label + units                  
+       y = "Time slept (minutes)") + # creates y-axis label + units                  
   theme_classic(base_size = 12) # cleaner theme
 ```
 
@@ -231,11 +231,10 @@ ggplot(data = my_data_clean, # uses cleaned data
 In text (not in code), write captions for both your figures.
 
 **Figure 1. Time slept varies across days of the week.** 
-Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday) which are each indicated with a different color (Monday is coral, Tuesday is steelblue, Wednesday is lavender, Thursday is pink, Friday is limegreen, Saturday is yellow, Sunday is lightblue). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 **Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).**
-Purple circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficency and 0 indicating 0% efficiency). Each point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you
-were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+Purple circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficency and 0 indicating 0% efficiency). Each magenta-colored point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 ## Problem 3. Affective visualization
 
@@ -256,7 +255,11 @@ knitr::include_graphics(here('data',"sketch.jpg"))
 ### c. Make a draft of your visualization.
 Feel free to be creative with this! The one rule is that *you may not use any code to create your visualization*.
 
-xxx need to do
+```{r}
+# includes draft
+knitr::include_graphics(here('data',"draft.jpeg"))
+```
+
 
 ### d. Write an artist statement.
 An artist statement gives the audience context to understand your work. For each of the following points, write 1-3 sentences to address:
