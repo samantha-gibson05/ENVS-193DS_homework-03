@@ -1,7 +1,7 @@
 ---
 title: "Homework 3"
 author: "Sami Gibson"
-date: "03/31/2005"
+date: "03/4/2005"
 format:
   html:
     toc: true # use this to display a table of contents
@@ -36,7 +36,7 @@ In 1-3 sentences, name the appropriate test(s) to determine the **strength of th
 
 Be specific in your response to demonstrate your understanding of the variables in this question.
 
-An appropriate parametric test is **Pearson’s correlation coefficient (r)**, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is **Spearman’s rank correlation ($\rho$)**, which evaluates the strength of a monotonic relationship using ranked values of salinity and biomass and does not require normality. Pearson’s r tests linear association on raw data, whereas Spearman’s $\rho$ tests monotonic association based on ranks and is more flexible to non-normality and outliers.
+An appropriate parametric test is **Pearson’s correlation coefficient (r)**, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is **Spearman’s rank correlation ($\rho$)**, which evaluates the strength of a monotonic relationship using ranked values and does not require normality. These tests quantify how strongly variation in salinity is associated with variation in individual pickleweed biomass across the restoration site.
 
 ### b. Create a visualization
 Create a visualization that would be appropriate for showing the relationship between soil salinity (in mS/cm) and California pickleweed biomass (in g).
@@ -85,7 +85,7 @@ par(mfrow = c(2, 2)) # arrange plots in a 2x2 grid
 plot(salinity_model) # generate plots based on salinity_model
 ```
 
-I checked the assumptions needed for Pearson's correlation by fitting the linear model `salinity_model`, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction.
+I checked the assumptions needed for Pearson's correlation by fitting the linear model `salinity_model`, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction and while independence cannot be diagnosed from these plots, it is assumed because each observation represents a different plant sampled once (no repeated measures).
 
 ### Part 2: Running My Test
 ```{r}
@@ -100,18 +100,18 @@ In 1-3 sentences each, write about:
 
 - which test you used, and why
 
-I used Pearson’s product–moment correlation because both soil salinity (mS/cm) and pickleweed biomass (g) are continuous variables, and the goal was to determine the strength of the relationship between these variables. The diagnostic plots indicated that assumptions of linear relationship between variables, normally distributed variables, and independent observations were reasonably met with some minor deviations from homoscedasticity. This made Pearson’s correlation appropriate for evaluating this linear relationship.
+I used Pearson’s product–moment correlation to assess the strength and direction of the linear relationship between soil salinity (mS/cm) and pickleweed biomass (g), since both variables are continuous. The diagnostic plots of the simple linear model indicated that assumptions of linearity, normally distributed residuals, independence and approximately constant variance were reasonably met. This made Pearson’s correlation appropriate for evaluating this linear relationship.
 
 - your interpretation of your test (along with the appropriate summary of the test in parentheses)
 
-I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that individuals may perform better under higher salinity conditions.
+I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that pickleweed individuals may perform better under higher salinity conditions.
 
 ### e. Write about the implications of your test.
 You’re working on a team of people at this restoration site who are also concerned about pickleweed planting. In 2-3 sentences, write what you would communicate to them about the results of this test and what it means for pickleweed planting success at your site.
 
 Be cognizant of your audience as you are writing: what would they need to know to take action?
 
-My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05), meaning that plants in higher-salinity areas tended to be larger in the data sample. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough, so prioritizing planting in areas with moderate to higher salinity may improve establishment and growth. 
+My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, $\alpha$ = 0.05), meaning that plants in areas with higher soil salinity tended to be larger. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough. Prioritizing planting in areas with moderate to higher salinity may improve establishment and growth. 
 
 ### f. Double check your own work.
 In part a, you outlined *two* potential tests to answer this question about the strength of the relationship between soil salinity and pickleweed biomass. In part c, you chose a test, checked your assumptions, and ran one.
@@ -129,10 +129,9 @@ In 1-3 sentences, describe whether or not the two tests would have led you to ma
 
 In your description, be specific about the tests, their components, and their relation to the variables.
 
-Yes, both Pearson’s r and Spearman’s $\rho$ reject the null hypothesis of no association (Pearson’s r = 0.53, t(21) = 2.9, p = 0.009, $\alpha$ = 0.05; Spearman's $\rho$ = 0.59, S = 824, p < 0.003, $\alpha$ = 0.05). Both tests indicate a moderate positive relationship between soil salinity (mS/cm) and pickleweed biomass (g). The Spearman result is slightly stronger which is consistent with the diagnostics showing mild heteroscedasticity.
+Yes, both Pearson’s r and Spearman’s $\rho$ reject the null hypothesis of no association (Pearson’s r = 0.53, t(21) = 2.9, p = 0.009, $\alpha$ = 0.05; Spearman's $\rho$ = 0.59, S = 824, p < 0.003, $\alpha$ = 0.05). Both tests indicate a moderate positive relationship between soil salinity (mS/cm) and pickleweed biomass (g) indicating higher salinity is associated with higher biomass. The Spearman result is slightly stronger which is consistent with the diagnostics showing mild heteroscedasticity because this approach is more robust to mild violations of assumptions.
 
 ## Problem 2. Personal data
-xxx update again before submitting
 ### a. Updating your visualizations
 Revisit the visualizations you created in homework 2.
 
