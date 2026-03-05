@@ -196,17 +196,17 @@ ggplot(my_data_clean, # uses cleaned data
     alpha = 0.65, # sets transparency for readability
     size = 2) + # sets point size
   # creates scatter points for each day of the week
-  scale_fill_manual(values = week_colors) + # applies custom fill colors
+  scale_fill_manual(values = week_colors, # applies custom fill colors
+                    guide = "none") + # hides legend
   scale_color_manual(values = week_colors, # applies custom point colors 
                      guide = "none") + # hides legend
   labs(title = "Time slept varies across days of the week", # creates title
-       subtitle = paste("Most recent observation:", most_recent_date), 
-       # creates subtitle with latest date
+       subtitle = paste("Most recent observation:", # creates subtitle
+                        format(most_recent_date, "%b %d, %Y")), # reformat date
        x = "Day of week", # creates x-axis label
        y = "Time slept (minutes)") + # creates y-axis label + units
   theme_classic(base_size = 12) + # cleaner theme
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), # rotate x-axis labels
-    legend.position = "right") # keep legend on right
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) # rotate x-axis labels
 ```
 
 **Visualization 2 (continuous predictor variable)**
@@ -219,8 +219,8 @@ ggplot(data = my_data_clean, # uses cleaned data
     alpha = 0.7, # sets transparency so points are visible
     size = 2) + # sets size of points 
   labs(title = "Sleep duration vs. sleep efficiency", # creates title
-       subtitle = paste("Most recent observation:", most_recent_date), 
-       # creates subtitle with latest date
+       subtitle = paste("Most recent observation:", # creates subtitle
+                        format(most_recent_date, "%b %d, %Y")), # reformat date
        x = "Sleep Efficiency (range 0-1)", # creates x-axis label
        y = "Time slept (minutes)") + # creates y-axis label + units                  
   theme_classic(base_size = 12) # cleaner theme
@@ -233,7 +233,7 @@ In text (not in code), write captions for both your figures.
 Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday) which are each indicated with a different color (Monday is coral, Tuesday is steelblue, Wednesday is lavender, Thursday is pink, Friday is limegreen, Saturday is yellow, Sunday is lightblue). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 **Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).**
-Purple circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficency and 0 indicating 0% efficiency). Each magenta-colored point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
+Magenta circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficiency and 0 indicating 0% efficiency). Each scatterplot point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.
 
 ## Problem 3. Affective visualization
 
@@ -241,7 +241,7 @@ In this problem, you will create an **affective visualization** using your perso
 
 ### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
 
-Inspired by warming stripes and quilt art I could create a visualization where each day could be represented as a horizontal strip of color. Color intensity could reflect time spent stressed and opacity of the strip could be determined by my sleep efficiency (measured as a % out of 100). For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The length of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chronologically, with the first observation in the middle of the square design mirrored across the horizontal middle to try to represent any patterns/trends over time. 
+Inspired by warming stripes and quilt art, I could create a visualization where each day is represented by a horizontal strip arranged chronologically from top to bottom. The color of each strip would represent time stressed with the number of the hue determined by the minutes spent stressed. The opacity of each strip would represent sleep efficiency (measured as a percentage), with more opaque colors indicating higher efficiency. The length of each strip would represent time slept, so longer strips indicate more sleep. The design would mirror the strips across the center of a square layout, creating a quilt-like pattern that highlights changes/patterns in stress and sleep over time.
 
 ### b. Create a sketch (on paper) of your idea.
 Include a photo of this sketch in your document.
@@ -265,19 +265,19 @@ An artist statement gives the audience context to understand your work. For each
 
 - the content of your piece (what are you showing?)
 
-This piece visualizes my daily sleep duration and time spent stressed data arranged chronologically, to reveal patterns, fluctuations, and rhythms over time. Each day is represented as a horizontal strip of color, where the hue of the color reflects the amount of time I felt stressed (red/orange hues indicate more time spent stressed and green/blue hues represent less time spent stressed). The opacity of the strip will be determined by my sleep efficiency (will more efficiency represented by more opaque strips) and with the length of the strip representing how long I slept.
+This piece visualizes my daily sleep duration and time spent stressed data arranged chronologically to reveal patterns, fluctuations, and rhythms over time. Each day is represented as a horizontal strip of color, where the hue of the color reflects the amount of time I felt stressed. The opacity of each strip represents sleep efficiency, with higher efficiency shown as more opaque colors, while the length of each strip represents the total time slept that night.
 
 - the influences (what did techniques/artists/etc. did you find influential in creating your work?)
 
-I was influenced by warming stripes temperature visualizations and quilt art, which use simple color gradients to communicate change over time in an intuitive and emotional way. I was also inspired by data-art projects allowing trends to be felt rather than just measured. My initial inspiration came from temperature color blankets I saw on the r/dataisbeautiful Reddit page I saw over the past summer that really stuck with me.
+I was influenced by warming-strips temperature visualizations and quilt art, which use simple color gradients to communicate change over time in an intuitive and emotional way. I was also inspired by data-art projects that allow trends to be felt rather than just measured. My initial inspiration came from temperature-color blankets shared on the r/dataisbeautiful Reddit page that I saw over the past summer and really stuck with me.
 
 - the form of your work (watercolor, oil painting, crocheted object, etc.)
 
-My visualization will be created digitally using the Sketchbook app on my iPad. 
+My visualization will be created digitally using the Sketchbook app on my iPad.
 
 - your process (how did you create your work?)
 
-I plan to use a grid background (which I will later deleted) to keep my strip spacing and length (indicating time slept consistent). The mean sleep efficiency (over my current sample of data) will mark the 50% opacity with more efficient days being more opaque and vice versa. Each block on the grid will indicate an additional 10 minutes slept and a change in hue by 10 towards a more red tone will indicate 15 additional minutes stressed.
+I plan to use a grid background (which I will later delete) to keep the spacing and lengths of the strips consistent. The sleep efficiency percentage will match the  opacity of each strip with days above the mean appearing more opaque and days below the mean appearing more transparent. Each block on the grid will indicate an additional 10 minutes slept and a change in hue will be directly indicated by minutes stressed.
 
 ### e. Prep your materials to share in class.
 In workshop week 9, you will present your draft and providing feedback on your learning partners’ drafts.
@@ -308,19 +308,17 @@ In 2-4 sentences, answer the question.
 
 How clearly did the authors *visually* represent their statistics in figures? For example, are the x- and y-axes in a logical position? Do they show summary statistics (means and SE, for example) and/or model predictions, and if so, do they show the underlying data?
 
-The authors clearly present the primary comparison by placing predator density categories on the x-axis and chlorophyll-a concentration on the y-axis, which feels like a logical and intuitive layout. The figure displays summary statistics (mean values) with error bars, representing standard error, and uses letter groupings (“a” = absent, “b” = barbels) to indicate statistically significant differences among treatments. While the summary presentation communicates statistical differences efficiently, it limits representation regarding the spread and structure of the raw data because it does not show underlying data points. making it difficult to assess sample size, variability distribution, or potential outliers. 
-
+The authors clearly present the primary comparison by placing predator density categories on the x-axis and chlorophyll-a concentration on the y-axis, which creates a logical and intuitive layout. The figure shows summary statistics using mean values with error bars representing standard error, and uses letter groupings (“a” = absent, “b” = barbels) to indicate statistically significant differences among treatments. While this approach communicates statistical comparisons efficiently, the figure only displays summary values and does not show the underlying data points. As a result, it is difficult to assess the distribution of observations, sample size, or the presence of potential outliers.
 
 ### c. Aesthetic clarity
 In 2-4 sentences, answer the question.
 
 How well did the authors handle “visual clutter”? How would you describe the the data:ink ratio?
 
-The figure is visually straightforward and uncluttered, with minimal gridlines and clear labeling. The data-to-ink ratio is fairly high because most visual elements directly represent data (bars, error bars, group labels), and there are few unnecessary decorative components. However, the large, fully filled bars dominate the visual space and draw attention more to area than to the actual mean values. The bold primary colors also create strong visual contrast that is not tied to additional meaning, which makes the figure visually loud despite its otherwise simple and clear design.
-
+The figure is visually straightforward and mostly uncluttered, with minimal gridlines and clear labeling. The data-to-ink ratio is fairly high because most visual elements (bars, error bars, and treatment labels) directly represent data rather than decorative elements. However, the large filled bars dominate the visual space and emphasize area rather than the mean values themselves. The bold primary colors also create strong contrast without conveying additional information, which makes the figure slightly visually distracting despite its otherwise simple design.
 
 ### d. Recommendations
 In 2-4 sentences, outline what recommendations would you make to make the figure or table better. What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
 
 
-I would recommend replacing the bar chart with a dot plot or boxplot that includes the underlying data points. This would display more information and allow readers to evaluate variability and sample size more directly. Additionally, using slightly more muted colors would improve accessibility without altering interpretation. The y-axis could also explicitly state what the error bars represent (e.g., ± SE), which would clarify the statistical summary being shown although this information is found below in the caption. These changes could increase interpretability of the figure.
+I would recommend replacing the bar chart with a dot plot or boxplot that includes the underlying data points. Showing the raw observations would allow readers to assess variability, sample size, and potential outliers rather than only viewing summary statistics. Additionally, using slightly more muted colors would reduce unnecessary visual emphasis and improve accessibility without changing the meaning of the figure. Finally, explicitly labeling the y-axis or legend with what the error bars represent (SE), would make the statistical summary clearer without requiring readers to refer to the caption.

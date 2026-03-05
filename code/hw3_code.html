@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sami Gibson">
-<meta name="dcterms.date" content="2005-03-31">
+<meta name="dcterms.date" content="2005-03-04">
 
 <title>Homework 3</title>
 <style>
@@ -171,7 +171,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 31, 2005</p>
+      <p class="date">March 4, 2005</p>
     </div>
   </div>
   
@@ -209,7 +209,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="a.-an-appropriate-test">a. An appropriate test</h3>
 <p>In 1-3 sentences, name the appropriate test(s) to determine the <strong>strength of the relationship between salinity and California pickleweed biomass</strong> (hint: there are two). Describe the differences between the two tests.</p>
 <p>Be specific in your response to demonstrate your understanding of the variables in this question.</p>
-<p>An appropriate parametric test is <strong>Pearson’s correlation coefficient (r)</strong>, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is <strong>Spearman’s rank correlation (<span class="math inline">\(\rho\)</span>)</strong>, which evaluates the strength of a monotonic relationship using ranked values of salinity and biomass and does not require normality. Pearson’s r tests linear association on raw data, whereas Spearman’s <span class="math inline">\(\rho\)</span> tests monotonic association based on ranks and is more flexible to non-normality and outliers.</p>
+<p>An appropriate parametric test is <strong>Pearson’s correlation coefficient (r)</strong>, which assesses the strength and direction of a linear relationship between two continuous variables (soil salinity (mS/cm) and California pickleweed biomass (g)) assuming approximately normal distributions and independent observations. A non-parametric alternative is <strong>Spearman’s rank correlation (<span class="math inline">\(\rho\)</span>)</strong>, which evaluates the strength of a monotonic relationship using ranked values and does not require normality. These tests quantify how strongly variation in salinity is associated with variation in individual pickleweed biomass across the restoration site.</p>
 </section>
 <section id="b.-create-a-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="b.-create-a-visualization">b. Create a visualization</h3>
@@ -272,7 +272,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>I checked the assumptions needed for Pearson’s correlation by fitting the linear model <code>salinity_model</code>, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction.</p>
+<p>I checked the assumptions needed for Pearson’s correlation by fitting the linear model <code>salinity_model</code>, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction and while independence cannot be diagnosed from these plots, it is assumed because each observation represents a different plant sampled once (no repeated measures).</p>
 </section>
 <section id="part-2-running-my-test" class="level3">
 <h3 class="anchored" data-anchor-id="part-2-running-my-test">Part 2: Running My Test</h3>
@@ -302,17 +302,17 @@ sample estimates:
 <ul>
 <li>which test you used, and why</li>
 </ul>
-<p>I used Pearson’s product–moment correlation because both soil salinity (mS/cm) and pickleweed biomass (g) are continuous variables, and the goal was to determine the strength of the relationship between these variables. The diagnostic plots indicated that assumptions of linear relationship between variables, normally distributed variables, and independent observations were reasonably met with some minor deviations from homoscedasticity. This made Pearson’s correlation appropriate for evaluating this linear relationship.</p>
+<p>I used Pearson’s product–moment correlation to assess the strength and direction of the linear relationship between soil salinity (mS/cm) and pickleweed biomass (g), since both variables are continuous. The diagnostic plots of the simple linear model indicated that assumptions of linearity, normally distributed residuals, independence and approximately constant variance were reasonably met. This made Pearson’s correlation appropriate for evaluating this linear relationship.</p>
 <ul>
 <li>your interpretation of your test (along with the appropriate summary of the test in parentheses)</li>
 </ul>
-<p>I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (in g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, <span class="math inline">\(\alpha\)</span> = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that individuals may perform better under higher salinity conditions.</p>
+<p>I found a moderate relationship (positive + linear) between soil salinity (in mS/cm) and California pickleweed biomass (g) (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, <span class="math inline">\(\alpha\)</span> = 0.05). This indicates that pickleweed biomass tends to increase as salinity increases, suggesting that pickleweed individuals may perform better under higher salinity conditions.</p>
 </section>
 <section id="e.-write-about-the-implications-of-your-test." class="level3">
 <h3 class="anchored" data-anchor-id="e.-write-about-the-implications-of-your-test.">e. Write about the implications of your test.</h3>
 <p>You’re working on a team of people at this restoration site who are also concerned about pickleweed planting. In 2-3 sentences, write what you would communicate to them about the results of this test and what it means for pickleweed planting success at your site.</p>
 <p>Be cognizant of your audience as you are writing: what would they need to know to take action?</p>
-<p>My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, <span class="math inline">\(\alpha\)</span> = 0.05), meaning that plants in higher-salinity areas tended to be larger in the data sample. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough, so prioritizing planting in areas with moderate to higher salinity may improve establishment and growth.</p>
+<p>My analysis indicated a moderate positive relationship between soil salinity and pickleweed biomass (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, <span class="math inline">\(\alpha\)</span> = 0.05), meaning that plants in areas with higher soil salinity tended to be larger. This suggests that pickleweed is performing well under the more saline conditions typical of the brackish portions of the slough. Prioritizing planting in areas with moderate to higher salinity may improve establishment and growth.</p>
 </section>
 <section id="f.-double-check-your-own-work." class="level3">
 <h3 class="anchored" data-anchor-id="f.-double-check-your-own-work.">f.&nbsp;Double check your own work.</h3>
@@ -337,7 +337,7 @@ sample estimates:
 </div>
 <p>In 1-3 sentences, describe whether or not the two tests would have led you to make the same decision (about the null hypothesis) and interpret the results the same way (about the relationship between soil salinity and pickleweed biomass).</p>
 <p>In your description, be specific about the tests, their components, and their relation to the variables.</p>
-<p>Yes, both Pearson’s r and Spearman’s <span class="math inline">\(\rho\)</span> reject the null hypothesis of no association (Pearson’s r = 0.53, t(21) = 2.9, p = 0.009, <span class="math inline">\(\alpha\)</span> = 0.05; Spearman’s <span class="math inline">\(\rho\)</span> = 0.59, S = 824, p &lt; 0.003, <span class="math inline">\(\alpha\)</span> = 0.05). Both tests indicate a moderate positive relationship between soil salinity (mS/cm) and pickleweed biomass (g). The Spearman result is slightly stronger which is consistent with the diagnostics showing mild heteroscedasticity.</p>
+<p>Yes, both Pearson’s r and Spearman’s <span class="math inline">\(\rho\)</span> reject the null hypothesis of no association (Pearson’s r = 0.53, t(21) = 2.9, p = 0.009, <span class="math inline">\(\alpha\)</span> = 0.05; Spearman’s <span class="math inline">\(\rho\)</span> = 0.59, S = 824, p &lt; 0.003, <span class="math inline">\(\alpha\)</span> = 0.05). Both tests indicate a moderate positive relationship between soil salinity (mS/cm) and pickleweed biomass (g) indicating higher salinity is associated with higher biomass. The Spearman result is slightly stronger which is consistent with the diagnostics showing mild heteroscedasticity because this approach is more robust to mild violations of assumptions.</p>
 </section>
 </section>
 <section id="problem-2.-personal-data" class="level2">
@@ -402,17 +402,17 @@ sample estimates:
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.65</span>, <span class="co"># sets transparency for readability</span></span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="co"># sets point size</span></span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># creates scatter points for each day of the week</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> week_colors) <span class="sc">+</span> <span class="co"># applies custom fill colors</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> week_colors, <span class="co"># applies custom point colors </span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># hides legend</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time slept varies across days of the week"</span>, <span class="co"># creates title</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Most recent observation:"</span>, most_recent_date), </span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>       <span class="co"># creates subtitle with latest date</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Day of week"</span>, <span class="co"># creates x-axis label</span></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time slept (minutes)"</span>) <span class="sc">+</span> <span class="co"># creates y-axis label + units</span></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> <span class="co"># cleaner theme</span></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>), <span class="co"># rotate x-axis labels</span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="co"># keep legend on right</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> week_colors, <span class="co"># applies custom fill colors</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># hides legend</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> week_colors, <span class="co"># applies custom point colors </span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># hides legend</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time slept varies across days of the week"</span>, <span class="co"># creates title</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Most recent observation:"</span>, <span class="co"># creates subtitle</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">format</span>(most_recent_date, <span class="st">"%b %d, %Y"</span>)), <span class="co"># reformat date</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Day of week"</span>, <span class="co"># creates x-axis label</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time slept (minutes)"</span>) <span class="sc">+</span> <span class="co"># creates y-axis label + units</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> <span class="co"># cleaner theme</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="co"># rotate x-axis labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -431,8 +431,8 @@ sample estimates:
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="co"># sets transparency so points are visible</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="co"># sets size of points </span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sleep duration vs. sleep efficiency"</span>, <span class="co"># creates title</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Most recent observation:"</span>, most_recent_date), </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>       <span class="co"># creates subtitle with latest date</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Most recent observation:"</span>, <span class="co"># creates subtitle</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">format</span>(most_recent_date, <span class="st">"%b %d, %Y"</span>)), <span class="co"># reformat date</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sleep Efficiency (range 0-1)"</span>, <span class="co"># creates x-axis label</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time slept (minutes)"</span>) <span class="sc">+</span> <span class="co"># creates y-axis label + units                  </span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="co"># cleaner theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -449,7 +449,7 @@ sample estimates:
 <h3 class="anchored" data-anchor-id="b.-captions">b. Captions</h3>
 <p>In text (not in code), write captions for both your figures.</p>
 <p><strong>Figure 1. Time slept varies across days of the week.</strong> Colored boxplots represent the distribution of daily time slept (minutes) for each day of the week (Monday–Sunday) which are each indicated with a different color (Monday is coral, Tuesday is steelblue, Wednesday is lavender, Thursday is pink, Friday is limegreen, Saturday is yellow, Sunday is lightblue). Boxes display the interquartile range (IQR), horizontal lines indicate medians, and whiskers extend to 1.5 times the IQR. Semi-transparent colored points represent individual daily observations which are jittered horizontally within each day to reduce overlap. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.</p>
-<p><strong>Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).</strong> Purple circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficency and 0 indicating 0% efficiency). Each magenta-colored point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.</p>
+<p><strong>Figure 2. Sleep duration is associated with sleep effciency (as measured by the Oura Ring).</strong> Magenta circles represent individual daily observations of time slept (minutes) plotted against sleep efficiency (ranging 0-1 with 1 indicating 100% efficiency and 0 indicating 0% efficiency). Each scatterplot point corresponds to a single recorded day. Sleep efficiency as defined by Oura is the percentage of time you were asleep while you were in bed. The subtitle indicates the most recent observation included in the dataset. Data represent personal daily tracking records collected between January–February 2026 using an Oura ring.</p>
 </section>
 </section>
 <section id="problem-3.-affective-visualization" class="level2">
@@ -457,7 +457,7 @@ sample estimates:
 <p>In this problem, you will create an <strong>affective visualization</strong> using your personal data in preparation for workshops during weeks 9 and 10.</p>
 <section id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences." class="level3">
 <h3 class="anchored" data-anchor-id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences.">a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).</h3>
-<p>Inspired by warming stripes and quilt art I could create a visualization where each day could be represented as a horizontal strip of color. Color intensity could reflect time spent stressed and opacity of the strip could be determined by my sleep efficiency (measured as a % out of 100). For example less than an hour stressed could be a green shade and it could shift from yellow, to orange, to red as stress time is larger. The length of each strip of color could indicate the time spent asleep (longer strips indicating more time spent sleeping). These strips would be ordered chronologically, with the first observation in the middle of the square design mirrored across the horizontal middle to try to represent any patterns/trends over time.</p>
+<p>Inspired by warming stripes and quilt art, I could create a visualization where each day is represented by a horizontal strip arranged chronologically from top to bottom. The color of each strip would represent time stressed with the number of the hue determined by the minutes spent stressed. The opacity of each strip would represent sleep efficiency (measured as a percentage), with more opaque colors indicating higher efficiency. The length of each strip would represent time slept, so longer strips indicate more sleep. The design would mirror the strips across the center of a square layout, creating a quilt-like pattern that highlights changes/patterns in stress and sleep over time.</p>
 </section>
 <section id="b.-create-a-sketch-on-paper-of-your-idea." class="level3">
 <h3 class="anchored" data-anchor-id="b.-create-a-sketch-on-paper-of-your-idea.">b. Create a sketch (on paper) of your idea.</h3>
@@ -495,11 +495,11 @@ sample estimates:
 <ul>
 <li>the content of your piece (what are you showing?)</li>
 </ul>
-<p>This piece visualizes my daily sleep duration and time spent stressed data arranged chronologically, to reveal patterns, fluctuations, and rhythms over time. Each day is represented as a horizontal strip of color, where the hue of the color reflects the amount of time I felt stressed (red/orange hues indicate more time spent stressed and green/blue hues represent less time spent stressed). The opacity of the strip will be determined by my sleep efficiency (will more efficiency represented by more opaque strips) and with the length of the strip representing how long I slept.</p>
+<p>This piece visualizes my daily sleep duration and time spent stressed data arranged chronologically to reveal patterns, fluctuations, and rhythms over time. Each day is represented as a horizontal strip of color, where the hue of the color reflects the amount of time I felt stressed. The opacity of each strip represents sleep efficiency, with higher efficiency shown as more opaque colors, while the length of each strip represents the total time slept that night.</p>
 <ul>
 <li>the influences (what did techniques/artists/etc. did you find influential in creating your work?)</li>
 </ul>
-<p>I was influenced by warming stripes temperature visualizations and quilt art, which use simple color gradients to communicate change over time in an intuitive and emotional way. I was also inspired by data-art projects allowing trends to be felt rather than just measured. My initial inspiration came from temperature color blankets I saw on the r/dataisbeautiful Reddit page I saw over the past summer that really stuck with me.</p>
+<p>I was influenced by warming-strips temperature visualizations and quilt art, which use simple color gradients to communicate change over time in an intuitive and emotional way. I was also inspired by data-art projects that allow trends to be felt rather than just measured. My initial inspiration came from temperature-color blankets shared on the r/dataisbeautiful Reddit page that I saw over the past summer and really stuck with me.</p>
 <ul>
 <li>the form of your work (watercolor, oil painting, crocheted object, etc.)</li>
 </ul>
@@ -507,7 +507,7 @@ sample estimates:
 <ul>
 <li>your process (how did you create your work?)</li>
 </ul>
-<p>I plan to use a grid background (which I will later deleted) to keep my strip spacing and length (indicating time slept consistent). The mean sleep efficiency (over my current sample of data) will mark the 50% opacity with more efficient days being more opaque and vice versa. Each block on the grid will indicate an additional 10 minutes slept and a change in hue by 10 towards a more red tone will indicate 15 additional minutes stressed.</p>
+<p>I plan to use a grid background (which I will later delete) to keep the spacing and lengths of the strips consistent. The sleep efficiency percentage will match the opacity of each strip with days above the mean appearing more opaque and days below the mean appearing more transparent. Each block on the grid will indicate an additional 10 minutes slept and a change in hue will be directly indicated by minutes stressed.</p>
 </section>
 <section id="e.-prep-your-materials-to-share-in-class." class="level3">
 <h3 class="anchored" data-anchor-id="e.-prep-your-materials-to-share-in-class.">e. Prep your materials to share in class.</h3>
@@ -541,18 +541,18 @@ sample estimates:
 <h3 class="anchored" data-anchor-id="b.-visual-clarity">b. Visual clarity</h3>
 <p>In 2-4 sentences, answer the question.</p>
 <p>How clearly did the authors <em>visually</em> represent their statistics in figures? For example, are the x- and y-axes in a logical position? Do they show summary statistics (means and SE, for example) and/or model predictions, and if so, do they show the underlying data?</p>
-<p>The authors clearly present the primary comparison by placing predator density categories on the x-axis and chlorophyll-a concentration on the y-axis, which feels like a logical and intuitive layout. The figure displays summary statistics (mean values) with error bars, representing standard error, and uses letter groupings (“a” = absent, “b” = barbels) to indicate statistically significant differences among treatments. While the summary presentation communicates statistical differences efficiently, it limits representation regarding the spread and structure of the raw data because it does not show underlying data points. making it difficult to assess sample size, variability distribution, or potential outliers.</p>
+<p>The authors clearly present the primary comparison by placing predator density categories on the x-axis and chlorophyll-a concentration on the y-axis, which creates a logical and intuitive layout. The figure shows summary statistics using mean values with error bars representing standard error, and uses letter groupings (“a” = absent, “b” = barbels) to indicate statistically significant differences among treatments. While this approach communicates statistical comparisons efficiently, the figure only displays summary values and does not show the underlying data points. As a result, it is difficult to assess the distribution of observations, sample size, or the presence of potential outliers.</p>
 </section>
 <section id="c.-aesthetic-clarity" class="level3">
 <h3 class="anchored" data-anchor-id="c.-aesthetic-clarity">c.&nbsp;Aesthetic clarity</h3>
 <p>In 2-4 sentences, answer the question.</p>
 <p>How well did the authors handle “visual clutter”? How would you describe the the data:ink ratio?</p>
-<p>The figure is visually straightforward and uncluttered, with minimal gridlines and clear labeling. The data-to-ink ratio is fairly high because most visual elements directly represent data (bars, error bars, group labels), and there are few unnecessary decorative components. However, the large, fully filled bars dominate the visual space and draw attention more to area than to the actual mean values. The bold primary colors also create strong visual contrast that is not tied to additional meaning, which makes the figure visually loud despite its otherwise simple and clear design.</p>
+<p>The figure is visually straightforward and mostly uncluttered, with minimal gridlines and clear labeling. The data-to-ink ratio is fairly high because most visual elements (bars, error bars, and treatment labels) directly represent data rather than decorative elements. However, the large filled bars dominate the visual space and emphasize area rather than the mean values themselves. The bold primary colors also create strong contrast without conveying additional information, which makes the figure slightly visually distracting despite its otherwise simple design.</p>
 </section>
 <section id="d.-recommendations" class="level3">
 <h3 class="anchored" data-anchor-id="d.-recommendations">d.&nbsp;Recommendations</h3>
 <p>In 2-4 sentences, outline what recommendations would you make to make the figure or table better. What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.</p>
-<p>I would recommend replacing the bar chart with a dot plot or boxplot that includes the underlying data points. This would display more information and allow readers to evaluate variability and sample size more directly. Additionally, using slightly more muted colors would improve accessibility without altering interpretation. The y-axis could also explicitly state what the error bars represent (e.g., ± SE), which would clarify the statistical summary being shown although this information is found below in the caption. These changes could increase interpretability of the figure.</p>
+<p>I would recommend replacing the bar chart with a dot plot or boxplot that includes the underlying data points. Showing the raw observations would allow readers to assess variability, sample size, and potential outliers rather than only viewing summary statistics. Additionally, using slightly more muted colors would reduce unnecessary visual emphasis and improve accessibility without changing the meaning of the figure. Finally, explicitly labeling the y-axis or legend with what the error bars represent (SE), would make the statistical summary clearer without requiring readers to refer to the caption.</p>
 </section>
 </section>
 </section>
