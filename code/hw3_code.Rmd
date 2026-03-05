@@ -74,18 +74,43 @@ In the section in which you check your assumptions, write 1-3 sentences describi
 
 ### Part 1: Checking My Assumptions
 
-```{r, fig.width=10, fig.height=8}
-# Fit linear model
-salinity_model <- lm(pickleweed ~ salinity_mS_cm, 
-                     # response (biomass) ~ predictor (salinity)
-                     data = salinity) 
-                      # uses salinity data
-# Diagnostic plots
-par(mfrow = c(2, 2)) # arrange plots in a 2x2 grid
-plot(salinity_model) # generate plots based on salinity_model
+```{r}
+# Assumptions:
+#   1. Linear relationship between variables
+ggplot(data = salinity, # uses salinity data set
+       aes(x = salinity_mS_cm, # x-axis is salinity
+           y = pickleweed)) + # y-axis is pickleweed biomass
+  geom_point(color = 'magenta4', # sets point color
+             alpha = 0.8, # sets point transparency
+             size = 2) + # sets point size
+  labs(x = "Soil salinity (mS/cm)", # creates x-axis label
+       y = "Pickleweed biomass (g)", # creates y-axis label
+       title = "Pickleweed biomass vs. soil salinity") + # creates title
+  theme_minimal() # cleaner theme
+#   2. Variables are continuous
+str(salinity) # confirm salinity_mS_cm and pickleweed are numeric (continuous)
+#   3. Variables are normally distributed (this is up for debate)
+ggplot(data = salinity, # uses salinity data frame
+       aes(sample = salinity_mS_cm)) + # uses salinity_mS_cm variable
+  geom_qq_line(color = "green") + # adds green theoretical normal reference line
+  geom_qq() + # adds points 
+  labs(x = "Soil salinity (mS/cm)", # creates x-axis label
+       y = "Count", # creates y-axis label
+       title = "Distribution of soil salinity") + # creates title
+  theme_minimal() # cleaner theme
+ggplot(data = salinity, # uses salinity data frame
+       aes(sample = pickleweed)) + # uses salinity_mS_cm variable
+  geom_qq_line(color = "green") + # adds green theoretical normal reference line
+  geom_qq() + # adds points 
+  labs(x = "Pickleweed biomass (g)", # creates x-axis label 
+       y = "Count", # creates y-axis label
+       title = "Distribution of pickleweed biomass") + # creates title
+  theme_minimal() # cleaner theme
+#   4. Independent observations: assumed because each observation 
+#      represents a different plant sampled once (no repeated measures)
 ```
 
-I checked the assumptions needed for Pearson's correlation by fitting the linear model `salinity_model`, evaluating the 4 diagnostic plots, and ultimately deciding that the assumptions were met. Based on the Residuals vs Fitted + Scale-Location plots, residuals seem homoscedastic (mild evidence of increasing variance but consistent enough across values) and linear as well as normally distributed based on the Q-Q plot (the points mostly follow the reference line). By looking at the Residuals vs Leverage (Cook’s distance) plot I determined there were no outliers that might influence model estimates or prediction and while independence cannot be diagnosed from these plots, it is assumed because each observation represents a different plant sampled once (no repeated measures).
+I visually checked for the assumption of a **linear relationship between variables** using a scatterplot (appeared generally linear). I checked the Pearson correlation assumptions of **continuous variable** using the `str()` function (both variables are type nmumeric) and of **normally distributed** variables using Q–Q plots (points fall close to the reference line). **Independent observations** are assumed based on the sampling design (each plant measured once from distinct locations) so I concluded the assumptions for the Pearson’s r are reasonably met.
 
 ### Part 2: Running My Test
 ```{r}
@@ -100,7 +125,7 @@ In 1-3 sentences each, write about:
 
 - which test you used, and why
 
-I used Pearson’s product–moment correlation to assess the strength and direction of the linear relationship between soil salinity (mS/cm) and pickleweed biomass (g), since both variables are continuous. The diagnostic plots of the simple linear model indicated that assumptions of linearity, normally distributed residuals, independence and approximately constant variance were reasonably met. This made Pearson’s correlation appropriate for evaluating this linear relationship.
+I used Pearson’s product–moment correlation to assess the strength and direction of the linear relationship between soil salinity (mS/cm) and pickleweed biomass (g), since both variables are continuous. After checking my assumptions, I determined that the Pearson assumptions of a linear relationship between variables, continuous variables, normally distributed variables, and independent observations were all reasonably met. This made Pearson’s correlation appropriate for evaluating this linear relationship.
 
 - your interpretation of your test (along with the appropriate summary of the test in parentheses)
 
@@ -284,7 +309,7 @@ In workshop week 9, you will present your draft and providing feedback on your l
 
 **In your homework submission, include a “View” link to your slides as a hyperlink.**
 
-<https://docs.google.com/presentation/d/1-lYdxF9JngIYa13cuBBAoMJlJq-qKELeeaqrVKrTPOs/edit?usp=sharing>
+[View](https://docs.google.com/presentation/d/1-lYdxF9JngIYa13cuBBAoMJlJq-qKELeeaqrVKrTPOs/edit?usp=sharing)
 
 ## Problem 4. Statistical critique
 At this point, you have seen and created a lot of figures for this class. Revisit the paper you chose for your critique and your homework 2, where you described figures or tables in the text. Address the following in full sentences (3-4 sentences each).
